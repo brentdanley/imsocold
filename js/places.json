@@ -1,0 +1,337 @@
+[
+    {
+        "Name":"Acadia National Park, Maine",
+        "Latitude":44.376172,
+        "Longitude":-68.252377
+    },
+    {
+        "Name":"Portland, Maine",
+        "Latitude":43.649229,
+        "Longitude":-70.269072
+    },
+    {
+        "Name":"North Conway, New Hampshire",
+        "Latitude":44.051884,
+        "Longitude":-71.129164
+    },
+    {
+        "Name":"Burlington, Vermont",
+        "Latitude":44.474036,
+        "Longitude":-73.154894
+    },
+    {
+        "Name":"Fenway Park, Boston, Massachusetts",
+        "Latitude":42.346591,
+        "Longitude":-71.097168
+    },
+    {
+        "Name":"Cape Cod, Massachusetts",
+        "Latitude":41.651419,
+        "Longitude":-70.277227
+    },
+    {
+        "Name":"Syracuse, New York",
+        "Latitude":43.048306,
+        "Longitude":-76.150793
+    },
+    {
+        "Name":"Providence, Rhode Island",
+        "Latitude":43.048306,
+        "Longitude":-76.150793
+    },
+    {
+        "Name":"Hartford, Connecticut",
+        "Latitude":41.764001,
+        "Longitude":-72.673277
+    },
+    {
+        "Name":"Central Park, NYC, New York",
+        "Latitude":40.777019,
+        "Longitude":-73.96932
+    },
+    {
+        "Name":"Washington D.C.",
+        "Latitude":38.88925,
+        "Longitude":-77.050213
+    },
+    {
+        "Name":"Atlantic City, New Jersey",
+        "Latitude":39.358213,
+        "Longitude":-74.437226
+    },
+    {
+        "Name":"Newport News, Virginia",
+        "Latitude":37.087591,
+        "Longitude":-76.47622
+    },
+    {
+        "Name":"Raleigh, North Carolina",
+        "Latitude":35.780034,
+        "Longitude":-78.638811
+    },
+    {
+        "Name":"Knoxville, Tennessee",
+        "Latitude":35.978375,
+        "Longitude":-83.953447
+    },
+    {
+        "Name":"Birmingham, Alabama",
+        "Latitude":33.520883,
+        "Longitude":-86.802682
+    },
+    {
+        "Name":"Brent, Florida",
+        "Latitude":30.46919,
+        "Longitude":-87.236985
+    },
+    {
+        "Name":"Kennedy Space Center, Florida",
+        "Latitude":28.582575,
+        "Longitude":-80.64659
+    },
+    {
+        "Name":"Key West, Florida",
+        "Latitude":24.554314,
+        "Longitude":-81.79018
+    },
+    {
+        "Name":"New Orleans, Louisianna",
+        "Latitude":29.959359,
+        "Longitude":-90.065051
+    },
+    {
+        "Name":"Biloxi, Mississippi",
+        "Latitude":29.959359,
+        "Longitude":-90.065051
+    },
+    {
+        "Name":"Little Rock, Arkansas",
+        "Latitude":34.742406,
+        "Longitude":-92.272444
+    },
+    {
+        "Name":"St. Louis, Missouri",
+        "Latitude":38.624465,
+        "Longitude":-90.186587
+    },
+    {
+        "Name":"Louisville, Kentucky",
+        "Latitude":38.255386,
+        "Longitude":-85.759784
+    },
+    {
+        "Name":"Cincinatti, Ohio",
+        "Latitude":39.104439,
+        "Longitude":-84.508716
+    },
+    {
+        "Name":"Indianapolis, Indiana",
+        "Latitude":39.791226,
+        "Longitude":-86.257602
+    },
+    {
+        "Name":"Columbus, Ohio",
+        "Latitude":39.960905,
+        "Longitude":-82.998783
+    },
+    {
+        "Name":"Pittsburgh, Pennsylvania",
+        "Latitude":40.439729,
+        "Longitude":-79.996082
+    },
+    {
+        "Name":"Cleveland, Ohio",
+        "Latitude":41.475757,
+        "Longitude":-81.705143
+    },
+    {
+        "Name":"Niagara Falls, New York",
+        "Latitude":43.089043,
+        "Longitude":-79.066149
+    },
+    {
+        "Name":"Detroit, Michigan",
+        "Latitude":42.349286,
+        "Longitude":-83.062126
+    },
+    {
+        "Name":"Chicago, Illinois",
+        "Latitude":41.865972,
+        "Longitude":-87.608559
+    },
+    {
+        "Name":"Oshkosh, Wisconsin",
+        "Latitude":43.994832,
+        "Longitude":-88.551265
+    },
+    {
+        "Name":"Minneapolis, Minnesota",
+        "Latitude":44.977331,
+        "Longitude":-93.273269
+    },
+    {
+        "Name":"Kansas City, Missouri",
+        "Latitude":39.102577,
+        "Longitude":-94.583273
+    },
+    {
+        "Name":"Des Moines, Iowa",
+        "Latitude":41.585804,
+        "Longitude":-93.625399
+    },
+    {
+        "Name":"Sioux Falls, South Dakota",
+        "Latitude":43.541157,
+        "Longitude":-96.735803
+    },
+    {
+        "Name":"Mount Rushmore, South Dakota",
+        "Latitude":43.879315,
+        "Longitude":-103.458839
+    },
+    {
+        "Name":"Devil's Tower National Monument, Wyoming",
+        "Latitude":44.590214,
+        "Longitude":-104.714606
+    },
+    {
+        "Name":"Lincoln, Nebraska",
+        "Latitude":40.803143,
+        "Longitude":-96.682145
+    },
+    {
+        "Name":"Wichita, Kansas",
+        "Latitude":37.654038,
+        "Longitude":-97.307033
+    },
+    {
+        "Name":"Oklahoma City, Oklahoma",
+        "Latitude":35.459279,
+        "Longitude":-97.535703
+    },
+    {
+        "Name":"Dallas, Texas",
+        "Latitude":32.779824,
+        "Longitude":-96.759241
+    },
+    {
+        "Name":"Houston, Texas",
+        "Latitude":29.756125,
+        "Longitude":-95.36628
+    },
+    {
+        "Name":"Carlesbad, New Mexico",
+        "Latitude":32.175233,
+        "Longitude":-104.443234
+    },
+    {
+        "Name":"Albuquerque, New Mexico",
+        "Latitude":35.111151,
+        "Longitude":-106.599395
+    },
+    {
+        "Name":"Aspen, Colorado",
+        "Latitude":39.220377,
+        "Longitude":-106.863931
+    },
+    {
+        "Name":"Boulder, Colorado",
+        "Latitude":39.972402,
+        "Longitude":-105.246261
+    },
+    {
+        "Name":"Grand Junction, Colorado",
+        "Latitude":39.076685,
+        "Longitude":-108.550899
+    },
+    {
+        "Name":"Tucson, Arizona",
+        "Latitude":32.22355,
+        "Longitude":-110.917547
+    },
+    {
+        "Name":"Flagstaff, Arizona",
+        "Latitude":35.178103,
+        "Longitude":-111.656615
+    },
+    {
+        "Name":"Provo, Utah",
+        "Latitude":40.257481,
+        "Longitude":-111.654618
+    },
+    {
+        "Name":"Yellowstone National Park, Wyoming",
+        "Latitude":44.451764,
+        "Longitude":-110.661224
+    },
+    {
+        "Name":"Rexburg, Idaho",
+        "Latitude":43.820375,
+        "Longitude":-111.784374
+    },
+    {
+        "Name":"Boise, Idaho",
+        "Latitude":43.615809,
+        "Longitude":-116.210915
+    },
+    {
+        "Name":"Spokane, Washington",
+        "Latitude":47.656785,
+        "Longitude":-117.419105
+    },
+    {
+        "Name":"Seattle, Washington",
+        "Latitude":47.620496,
+        "Longitude":-122.349283
+    },
+    {
+        "Name":"Portland, Oregon",
+        "Latitude":45.528902,
+        "Longitude":-122.663907
+    },
+    {
+        "Name":"Reno, Nevada",
+        "Latitude":39.527035,
+        "Longitude":-119.821608
+    },
+    {
+        "Name":"Las Vegas, Nevada",
+        "Latitude":36.13633,
+        "Longitude":-115.162161
+    },
+    {
+        "Name":"San Diego, California",
+        "Latitude":32.73137,
+        "Longitude":-117.149509
+    },
+    {
+        "Name":"San Francisco, California",
+        "Latitude":37.805002,
+        "Longitude":-122.428525
+    },
+    {
+        "Name":"Yosemite National Park, California",
+        "Latitude":37.810155,
+        "Longitude":-119.565643
+    },
+    {
+        "Name":"Grand Forks, North Dakota",
+        "Latitude":47.916197,
+        "Longitude":-97.052596
+    },
+    {
+        "Name":"Atlanta, Georgia",
+        "Latitude":33.75758,
+        "Longitude":-84.39022
+    },
+    {
+        "Name":"Death Valley National Park, California",
+        "Latitude":36.579521,
+        "Longitude":-117.178862
+    },
+    {
+        "Name":"Coeur d'Alene, Idaho",
+        "Latitude":47.676556,
+        "Longitude":-116.782477
+    }
+]
