@@ -16,6 +16,8 @@ $(function() {
 
 $('.clickme').on('click', function() {
 
+    $('.cold-places').empty();
+
     places = [];
 
     currentLat = $('[name=latitude]').val();
@@ -47,11 +49,11 @@ $('.clickme').on('click', function() {
             alert("error");
         },
         success: function(data) {
-            if (data.currently.temperature >= desiredTemperature) {
-                $('.origin').html('<p>Your starting location is currently ' + Math.round(data.currently.temperature) + ' &deg;F, which is warmer than what you desire. Congrats!</p><p>Maximum temperature for today is ' + Math.round(data.daily.data[0].temperatureMax) + ' &deg;F</p>');
+            if (Math.round(data.daily.data[0].temperatureMax) >= desiredTemperature) {
+                $('.origin').html('<p>The high temperature for your current location is ' + Math.round(data.daily.data[0].temperatureMax) + ' &deg;F, which is warmer than what you desire. Congrats!</p><p>Maximum temperature for today is ' + Math.round(data.daily.data[0].temperatureMax) + ' &deg;F</p>');
             }
             else {
-                $('.origin').html("<p>Your starting location is currently " + Math.round(data.currently.temperature) + " &deg;F. I'll find you a warmer location.</p>");
+                $('.origin').html("<p>The high temperature for your starting location is " + Math.round(data.daily.data[0].temperatureMax) + " &deg;F. I'll find you a warmer location.</p>");
 
                 // Get temperatures of closest location
                 getDestination(0, places);
@@ -73,17 +75,17 @@ var getDestination = function(index, places) {
             alert("error");
         },
         success: function(data) {
-            place["temperature"] = Math.round(data.currently.temperature);
+            place["temperature"] = Math.round(data.daily.data[0].temperatureMax);
             if (place.temperature < desiredTemperature) {
-                printPlace(places[index], data.currently, "too-cold");
+                printPlace(places[index], data.daily.data[0], "too-cold");
                 index++;
                 getDestination(index, places);
             }
             else {
-                printPlace(places[index], data.currently, "destination");
+                printPlace(places[index], data.daily.data[0], "destination");
                 drawMap(places[index], data.currently);
                 if (places[index].distance > 500) {
-                    $('body').append('<p>Your destination is ' + places[index].distance + ' miles away! Probably not a good day trip.</p>')
+                    $('body').append('<p>Your destination is ' + places[index].distance + ' miles away! Probably not a good day trip.</p>');
                 }
             }
         }
@@ -91,11 +93,10 @@ var getDestination = function(index, places) {
 };
 
 var printPlace = function(place, conditions, placeType) {
-    $('body').append("<div class='" + placeType + "'>" + place.name + ": " + place.distance + " miles - " + Math.round(conditions.temperature) + " &deg;F icon: " + conditions.icon + " wind: " + Math.round(conditions.windSpeed) + "mph at " + conditions.windBearing + "&deg;</div>");
+    $('.cold-places').append("<div class='" + placeType + "'>" + place.name + ": " + place.distance + " miles - " + Math.round(conditions.temperatureMax) + " &deg;F icon: " + conditions.icon + " wind: " + Math.round(conditions.windSpeed) + "mph at " + conditions.windBearing + "&deg;</div>");
 };
 
 var drawMap = function(place, conditions) {
-    $('#map').after("<p>" + place.name + ": " + place.distance + " miles - " + Math.round(conditions.temperature) + " &deg;F icon: " + conditions.icon + " wind: " + Math.round(conditions.windSpeed) + "mph from " + conditions.windBearing + "&deg;</p>");
 
     L.Routing.control({
         waypoints: [
@@ -103,6 +104,8 @@ var drawMap = function(place, conditions) {
             L.latLng(place.latitude, place.longitude)
         ]
     }).addTo(map);
+
+    $('.toggle-directions').show();
 };
 
 // Haversine Formula
@@ -121,3 +124,13 @@ var getDistance = function(lat1, lon1, lat2, lon2, unit) {
     if (unit=="N") { dist = dist * 0.8684 }
     return dist
 };
+
+$('.toggle-directions').on('click', function() {
+    if ($('.leaflet-routing-container').is(':visible')) {
+        $(this).text('Show Turn-by-turn');
+    }
+    else {
+        $(this).text('Hide Turn-by-turn');
+    }
+    $('.leaflet-routing-container').fadeToggle(500);
+});

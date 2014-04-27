@@ -1,0 +1,13 @@
+/* screen.scss - Primary stylesheet for imsocold.ilv.me */
+@import "compass/reset";
+
+#map {
+  width: 600px;
+  height: 400px;
+  border: thin solid black;
+  display: none;
+}
+
+.toggle-directions {
+  display: none;
+}
