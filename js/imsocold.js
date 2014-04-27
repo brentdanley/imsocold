@@ -20,7 +20,7 @@ $('#get-destination__button').on('click', function() {
 
     places = [];
 
-    currentLat = $('#origin-latutude').val();
+    currentLat = $('#origin-latitude').val();
     currentLon = $('#origin-longitude').val();
     desiredTemperature = $('#desired-temperature').val();
 
