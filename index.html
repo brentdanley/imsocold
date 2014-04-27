@@ -8,17 +8,25 @@
     <link rel="stylesheet" href="css/screen.css" />
 </head>
 <body>
-<input type="number" name="latitude" value="43.50"/>
-<input type="number" name="longitude" value="-70.45"/>
-<input type="number" name="desired-temp" value="40"/>
-<button type="button" class="clickme">Click me</button>
-<button type="button" class="toggle-directions">Hide Turn-by-turn</button>
-<button type="button" class="use-current">Use current location</button>
-<h2>Starting location:</h2>
-<div class="origin"></div>
-<div id="map"></div>
-<div class="cold-places"></div>
-</head>
+    <div class="form-group">
+        <label for="origin-latitude">Latutide</label>
+        <input type="number" id="origin-latitude" value="43.50"/>
+    </div>
+    <div class="form-group">
+        <label for="origin-longitude">Longitude</label>
+    <input type="number" id="origin-longitude" value="-70.45"/>
+    </div>
+    <div class="form-group">
+        <label for="desired-temperature">Desired Temperature</label>
+        <input type="number" id="desired-temperature" value="40"/>
+    </div>
+    <button type="button" class="toggle-directions">Hide Turn-by-turn</button>
+    <button type="button" class="use-current">Use current location</button>
+    <button type="button" id="get-destination__button" class="btn btn-primary clickme">Find warm place</button>
+    <h2>Starting location:</h2>
+    <div class="origin"></div>
+    <div id="map"></div>
+    <div class="cold-places"></div>
 <body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>

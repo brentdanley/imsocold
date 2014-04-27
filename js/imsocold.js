@@ -14,15 +14,15 @@ $(function() {
     });
 });
 
-$('.clickme').on('click', function() {
+$('#get-destination__button').on('click', function() {
 
     $('.cold-places').empty();
 
     places = [];
 
-    currentLat = $('[name=latitude]').val();
-    currentLon = $('[name=longitude]').val();
-    desiredTemperature = $('[name=desired-temp').val();
+    currentLat = $('#origin-latutude').val();
+    currentLon = $('#origin-longitude').val();
+    desiredTemperature = $('#desired-temperature').val();
 
     $('#map').fadeIn(400, function() {
         map.setView([currentLat, currentLon], 13);
@@ -145,6 +145,6 @@ $('.use-current').on('click', function() {
 });
 
 var setCurrentLocation = function(position) {
-    $('[name=latitude]').val(position.coords.latitude);
-    $('[name=longitude]').val(position.coords.longitude);
+    $('#origin-latitude').val(Math.round(position.coords.latitude * 100) / 100);
+    $('#origin-longitude').val(Math.round(position.coords.longitude * 100) / 100);
 };
