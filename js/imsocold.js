@@ -134,3 +134,17 @@ $('.toggle-directions').on('click', function() {
     }
     $('.leaflet-routing-container').fadeToggle(500);
 });
+
+$('.use-current').on('click', function() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(setCurrentLocation);
+    }
+    else {
+        alert("Geolocation is not supported by this browser.");
+    }
+});
+
+var setCurrentLocation = function(position) {
+    $('[name=latitude]').val(position.coords.latitude);
+    $('[name=longitude]').val(position.coords.longitude);
+};
