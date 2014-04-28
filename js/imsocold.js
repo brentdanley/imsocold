@@ -102,7 +102,7 @@ var getDestination = function(index, places) {
                 $('.directions-button-container, .cold-places').show();
                 drawMap(place, data.daily.data[0]);
                 $('.panel.destination').show();
-                $('.destination__heading').html('<i class="' + weatherIcons[data.daily.data[0].icon] + '"></i> Destination: ' + place.name);
+                $('.destination__heading').html('<i class="' + weatherIcons[data.daily.data[0].icon] + '"></i> Destination: ' + place.name + ' (' + place.distance + ' miles)');
                 if (place.distance > 500) {
                     $('.destination__body').prepend('<p class="alert alert-warning">Your destination is ' + place.distance + ' miles away! Probably not a good day trip.</p>');
                 }
