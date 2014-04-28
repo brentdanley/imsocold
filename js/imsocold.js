@@ -63,6 +63,7 @@ $('#get-destination__button').on('click', function() {
             $('.origin__heading').html('<i class="' + weatherIcons[data.daily.data[0].icon] + '"></i> Origin: ' + Math.round(currentLat * 100) / 100 + ' N, ' + Math.round(currentLon * 100) / 100 + " W");
             if (Math.round(data.daily.data[0].temperatureMax) >= desiredTemperature) {
                 $('.origin__body').append('<p class="alert alert-success">The high temperature for your current location is ' + Math.round(data.daily.data[0].temperatureMax) + ' &deg;F, which is warmer than what you desire. Congrats!</p><p>Maximum temperature for today is ' + Math.round(data.daily.data[0].temperatureMax) + ' &deg;F</p>');
+                $('#get-destination__button').find('.fa').removeClass('fa-spin');
             }
             else {
                 $('.origin__body').html('<p>The high temperature for your starting location is ' + Math.round(data.daily.data[0].temperatureMax) + " &deg;F. I'll find you a warmer location.</p>");
