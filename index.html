@@ -9,27 +9,54 @@
     <link rel="stylesheet" href="weather-icons/css/weather-icons.min.css" />
 </head>
 <body>
-<i class="wi-day-cloudy-gusts"></i>
-    <div class="form-group">
-        <label for="origin-latitude">Latutide</label>
-        <input type="number" id="origin-latitude" value="43.50"/>
+    <div class="content-wrapper">
+        <div class="header"><h1>I'm cold! Get me outta here!</h1></div>
+        <div class="form-container">
+            <div class="form-group">
+                <label for="origin-latitude">Latutide</label>
+                <input type="number" class="input-lg" id="origin-latitude"/>
+                <span class="help-block">Starting latitude.</span>
+            </div>
+            <div class="form-group">
+                <label for="origin-longitude">Longitude</label>
+                <input type="number" class="input-lg" id="origin-longitude"/>
+                <span class="help-block">Starting longitude.</span>
+            </div>
+            <div class="form-group">
+                <label for="desired-temperature">Desired Temperature</label>
+                <input type="number" class="input-lg" id="desired-temperature"/>
+                <span class="help-block">Desired temp (&deg;F)</span>
+            </div>
+            <div class="button-bar">
+                <button type="button" class="btn btn-primary use-current"><i class="fa fa-compass"></i> Use current location</button>
+                <button type="button" id="get-destination__button" class="btn btn-primary clickme" disabled="disabled"><i class="fa fa-search"></i> Find warm place</button>
+            </div>
+        </div>
+        <div class="panel panel-default origin">
+            <div class="panel-heading origin__heading">Origin</div>
+            <div class="panel-body origin__body"></div>
+        </div>
+        <div class="panel panel-default destination">
+            <div class="panel-heading destination__heading">Destination</div>
+            <div class="panel-body destination__body"></div>
+        </div>
+        <div id="map"></div>
+        <div class="directions-button-container"><button type="button" class="btn btn-primary toggle-directions">Hide Turn-by-turn</button></div>
+        <div class="panel panel-default cold-places">
+            <div class="panel-heading">Places we checked for you</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Miles</th>
+                        <th>Place</th>
+                        <th>Conditions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="origin-longitude">Longitude</label>
-    <input type="number" id="origin-longitude" value="-70.45"/>
-    </div>
-    <div class="form-group">
-        <label for="desired-temperature">Desired Temperature</label>
-        <input type="number" id="desired-temperature" value="40"/>
-    </div>
-    <button type="button" class="toggle-directions">Hide Turn-by-turn</button>
-    <button type="button" class="use-current">Use current location</button>
-    <button type="button" id="get-destination__button" class="btn btn-primary clickme">Find warm place</button>
-    <h2>Starting location:</h2>
-    <div class="origin"></div>
-    <div id="map"></div>
-    <div class="cold-places"></div>
-<body>
+    <a class="forecast-attribution" href="http://forecast.io/">Powered by Forecast</a>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
 <script src="js/leaflet-providers.js"></script>

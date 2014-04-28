@@ -8,25 +8,33 @@ var places = []; // Need an array for the sort
 var map = L.map('map');
 L.tileLayer.provider('OpenStreetMap.HOT').addTo(map);
 
+var weatherIcons = {'clear-day': 'wi-day-sunny', 'clear-night': 'wi-night-clear', 'rain': 'wi-rain', 'snow': 'wi-snow', 'sleet': 'wi-rain-mix', 'wind': 'wi-strong-wind', 'fog': 'wi-fog', 'cloudy': 'wi-cloudy', 'partly-cloudy-day': 'wi-day-cloudy', 'partly-cloudy-night': 'wi-night-cloudy'};
+
 $(function() {
     $.getJSON('js/places.json', function(json) {
         objPlaces = json;
     });
 });
 
+$('input').on('change', function() {
+    if ($.isNumeric($('#origin-latitude').val()) && $.isNumeric($('#origin-longitude').val()) && $.isNumeric($('#desired-temperature').val())) {
+        $('#get-destination__button').removeAttr('disabled');
+    }
+});
+
 $('#get-destination__button').on('click', function() {
 
-    $('.cold-places').empty();
+    $(this).find('.fa').addClass('fa-spin');
+
+    $('.origin__heading, .origin__body, .destination__heading, .destination__body, tbody').empty();
+
+    $('#map, .panel.origin, .panel.destination, .directions-button-container, .cold-places').hide();
 
     places = [];
 
     currentLat = $('#origin-latitude').val();
     currentLon = $('#origin-longitude').val();
     desiredTemperature = $('#desired-temperature').val();
-
-    $('#map').fadeIn(400, function() {
-        map.setView([currentLat, currentLon], 13);
-    });
 
     // Add distance from origin to each place
     $.each(objPlaces, function(key, value) {
@@ -49,11 +57,13 @@ $('#get-destination__button').on('click', function() {
             alert("error");
         },
         success: function(data) {
+            $('.panel.origin').show();
+            $('.origin__heading').html('<i class="' + weatherIcons[data.daily.data[0].icon] + '"></i> Origin: ' + Math.round(currentLat * 100) / 100 + ' N, ' + Math.round(currentLon * 100) / 100 + " W");
             if (Math.round(data.daily.data[0].temperatureMax) >= desiredTemperature) {
-                $('.origin').html('<p>The high temperature for your current location is ' + Math.round(data.daily.data[0].temperatureMax) + ' &deg;F, which is warmer than what you desire. Congrats!</p><p>Maximum temperature for today is ' + Math.round(data.daily.data[0].temperatureMax) + ' &deg;F</p>');
+                $('.origin__body').append('<p class="alert alert-success">The high temperature for your current location is ' + Math.round(data.daily.data[0].temperatureMax) + ' &deg;F, which is warmer than what you desire. Congrats!</p><p>Maximum temperature for today is ' + Math.round(data.daily.data[0].temperatureMax) + ' &deg;F</p>');
             }
             else {
-                $('.origin').html("<p>The high temperature for your starting location is " + Math.round(data.daily.data[0].temperatureMax) + " &deg;F. I'll find you a warmer location.</p>");
+                $('.origin__body').html('<p>The high temperature for your starting location is ' + Math.round(data.daily.data[0].temperatureMax) + " &deg;F. I'll find you a warmer location.</p>");
 
                 // Get temperatures of closest location
                 getDestination(0, places);
@@ -77,23 +87,33 @@ var getDestination = function(index, places) {
         success: function(data) {
             place["temperature"] = Math.round(data.daily.data[0].temperatureMax);
             if (place.temperature < desiredTemperature) {
-                printPlace(places[index], data.daily.data[0], "too-cold");
+                printPlace(place, data.daily.data[0]);
                 index++;
                 getDestination(index, places);
             }
             else {
-                printPlace(places[index], data.daily.data[0], "destination");
-                drawMap(places[index], data.currently);
-                if (places[index].distance > 500) {
-                    $('body').append('<p>Your destination is ' + places[index].distance + ' miles away! Probably not a good day trip.</p>');
+
+                $('#map').fadeIn(400, function() {
+                    map.setView([currentLat, currentLon], 13);
+                });
+
+                $('.directions-button-container, .cold-places').show();
+                drawMap(place, data.daily.data[0]);
+                $('.panel.destination').show();
+                $('.destination__heading').html('<i class="' + weatherIcons[data.daily.data[0].icon] + '"></i> Destination: ' + place.name);
+                if (place.distance > 500) {
+                    $('.destination__body').prepend('<p class="alert alert-warning">Your destination is ' + place.distance + ' miles away! Probably not a good day trip.</p>');
                 }
+                $('.destination__body').append('The high temperature at ' + place.name + ' today is ' + Math.round(data.daily.data[0].temperatureMax) + ' &deg;F.');
+                $('#get-destination__button').find('.fa').removeClass('fa-spin');
             }
         }
     });
 };
 
-var printPlace = function(place, conditions, placeType) {
-    $('.cold-places').append("<div class='" + placeType + "'>" + place.name + ": " + place.distance + " miles - " + Math.round(conditions.temperatureMax) + " &deg;F icon: " + conditions.icon + " wind: " + Math.round(conditions.windSpeed) + "mph at " + conditions.windBearing + "&deg;</div>");
+var printPlace = function(place, conditions) {
+    $('.cold-places')
+        .find('tbody').append('<tr><td>' + place.distance + '</td><td>' + place.name + '</td><td>' + Math.round(conditions.temperatureMax) + ' &deg;F <i class="' + weatherIcons[conditions.icon] + '"></i></td></tr>').end().show();
 };
 
 var drawMap = function(place, conditions) {
@@ -137,6 +157,7 @@ $('.toggle-directions').on('click', function() {
 
 $('.use-current').on('click', function() {
     if (navigator.geolocation) {
+        $(this).find('.fa').addClass('fa-spin');
         navigator.geolocation.getCurrentPosition(setCurrentLocation);
     }
     else {
@@ -147,4 +168,5 @@ $('.use-current').on('click', function() {
 var setCurrentLocation = function(position) {
     $('#origin-latitude').val(Math.round(position.coords.latitude * 100) / 100);
     $('#origin-longitude').val(Math.round(position.coords.longitude * 100) / 100);
+    $('.use-current').find('.fa').removeClass('fa-spin');
 };
