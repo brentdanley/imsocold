@@ -24,6 +24,8 @@ $('input').on('change', function() {
 
 $('#get-destination__button').on('click', function() {
 
+    $('#origin-longitude').val(Math.abs($('#origin-longitude').val()) * -1);
+
     $(this).find('.fa').addClass('fa-spin');
 
     $('.origin__heading, .origin__body, .destination__heading, .destination__body, tbody').empty();
